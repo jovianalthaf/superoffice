@@ -1,65 +1,394 @@
 import Image from "next/image";
+import Navbar from "./components/Navbar";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <>
+      <Navbar />
+      <header className="flex flex-col w-full">
+        <section
+          id="Hero-Banner"
+          className="relative flex h-[720px] -mb-[93px]"
+        >
+          <div
+            id="Hero-Text"
+            className="relative flex flex-col w-full max-w-[650px] h-fit rounded-[30px] border border-[#E0DEF7] p-10 gap-[30px] bg-white mt-[70px] ml-[calc((100%-1130px)/2)] z-10"
+          >
+            <div className="flex items-center w-fit rounded-full py-2 px-4 gap-[10px] bg-[#000929]">
+              <Image
+                src="/assets/images/icons/crown-white.svg"
+                className="w-5 h-5"
+                width={5}
+                height={5}
+                alt="icon"
+              />
+              <span className="font-semibold text-white">
+                We’ve won top productivity 500 fortunes
+              </span>
+            </div>
+            <h1 className="font-extrabold text-[50px] leading-[60px]">
+              All Great Offices.
+              <br />
+              Grow Your Business.
+            </h1>
+            <p className="text-lg leading-8 text-[#000929]">
+              Kantor yang tepat dapat memberikan impact pekerjaan menjadi lebih
+              baik dan sehat dalam tumbuhkan karir.
+            </p>
+            <div className="flex items-center gap-5">
+              <a
+                href="#"
+                className="flex items-center rounded-full p-[20px_26px] gap-3 bg-[#0D903A]"
+              >
+                <Image
+                  width={30}
+                  height={30}
+                  src="/assets/images/icons/slider-horizontal-white.svg"
+                  className="w-[30px] h-[30px]"
+                  alt="icon"
+                />
+                <span className="font-bold text-xl leading-[30px] text-[#F7F7FD]">
+                  Explore Now
+                </span>
+              </a>
+              <a
+                href="#"
+                className="flex items-center rounded-full border border-[#000929] p-[20px_26px] gap-3 bg-white"
+              >
+                <Image
+                  src="/assets/images/icons/video-octagon.svg"
+                  className="w-[30px] h-[30px]"
+                  alt="icon"
+                  width={30}
+                  height={30}
+                />
+                <span className="font-semibold text-xl leading-[30px]">
+                  Watch Story
+                </span>
+              </a>
+            </div>
+          </div>
+          <div
+            id="Hero-Image"
+            className="absolute right-0 w-[calc(100%-((100%-1130px)/2)-305px)] h-[720px] rounded-bl-[40px] overflow-hidden relative"
           >
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+              fill
+              src="/assets/images/backgrounds/banner.webp"
+              className="w-full h-full object-cover"
+              alt="hero background"
             />
-            Deploy Now
-          </a>
+          </div>
+        </section>
+        <div className="flex flex-col pt-[150px] pb-10 px-[120px] gap-10 bg-[#0D903A]">
+          <div className="logo-contianer flex items-center justify-center flex-wrap max-w-[1130px] h-[38px] mx-auto gap-[60px]">
+            <Image
+              width={185}
+              height={24}
+              src="/assets/images/logos/TESLA.svg"
+              alt="clients logo"
+            />
+            <Image
+              width={96}
+              height={38}
+              src="/assets/images/logos/Libra 2.svg"
+              alt="clients logo"
+            />
+            <Image
+              src="/assets/images/logos/Binance logo.svg"
+              alt="clients logo"
+              width={177}
+              height={36}
+            />
+            <Image
+              width={145}
+              height={28}
+              src="/assets/images/logos/Facebook 7.svg"
+              alt="clients logo"
+            />
+            <Image
+              width={141}
+              height={30}
+              src="/assets/images/logos/Microsoft 6.svg"
+              alt="clients logo"
+            />
+          </div>
+          <div className="flex justify-center gap-[50px]">
+            <div className="flex flex-col gap-[2px] text-center">
+              <p className="text-xl leading-[30px] text-[#F7F7FD]">
+                Comfortable Space
+              </p>
+              <p className="font-bold text-[38px] leading-[57px] text-white">
+                580M+
+              </p>
+            </div>
+            <div className="flex flex-col gap-[2px] text-center">
+              <p className="text-xl leading-[30px] text-[#F7F7FD]">
+                Startups Succeed
+              </p>
+              <p className="font-bold text-[38px] leading-[57px] text-white">
+                98%
+              </p>
+            </div>
+            <div className="flex flex-col gap-[2px] text-center">
+              <p className="text-xl leading-[30px] text-[#F7F7FD]">Countries</p>
+              <p className="font-bold text-[38px] leading-[57px] text-white">
+                90+
+              </p>
+            </div>
+            <div className="flex flex-col gap-[2px] text-center">
+              <p className="text-xl leading-[30px] text-[#F7F7FD]">
+                Supportive Events
+              </p>
+              <p className="font-bold text-[38px] leading-[57px] text-white">
+                139M+
+              </p>
+            </div>
+          </div>
+        </div>
+      </header>
+      <section id="Cities" className="flex flex-col gap-[30px] mt-[100px]">
+        <div className="w-full max-w-[1130px] mx-auto flex items-center justify-between">
+          <h2 className="font-bold text-[32px] leading-[48px] text-nowrap">
+            You Can Choose <br />
+            Our Favorite Cities
+          </h2>
           <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#"
+            className="rounded-full rounded-full py-3 px-5 bg-white font-bold"
           >
-            Documentation
+            Explore All City
           </a>
         </div>
-      </main>
-    </div>
+        <div className="swiper w-full">
+          <div className="swiper-wrapper">
+            <div className="swiper-slide !w-fit first-of-type:pl-[calc((100%-1130px-60px)/2)] last-of-type:pr-[calc((100%-1130px-60px)/2)]">
+              <a href="city-details.html" className="card">
+                <div className="relative flex shrink-0 w-[230px] h-[300px] rounded-[20px] overflow-hidden">
+                  <div className="relative flex flex-col justify-end w-full h-full p-5 gap-[2px] bg-[linear-gradient(180deg,_rgba(0,0,0,0)_49.87%,_rgba(0,0,0,0.8)_100%)] z-10">
+                    <h3 className="font-bold text-xl leading-[30px] text-white">
+                      Jakarta Pusat
+                    </h3>
+                    <p className="text-white">189 Offices</p>
+                  </div>
+                  <img
+                    src="/assets/images/thumbnails/thumbnails-2.png"
+                    className="absolute w-full h-full object-cover"
+                    alt="thumbnails"
+                  />
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        id="Benefits"
+        className="flex items-center justify-center w-[1015px] mx-auto gap-[100px] mt-[100px]"
+      >
+        <h2 className="font-bold text-[32px] leading-[48px] text-nowrap">
+          We Might Good <br />
+          For Your Business
+        </h2>
+        <div className="grid grid-cols-2 gap-[30px]">
+          <div className="flex items-center gap-4">
+            <div className="flex items-center justify-center shrink-0 w-[70px] h-[70px] rounded-[23px] bg-white overflow-hidden">
+              <Image
+                src="/assets/images/icons/security-user.svg"
+                className="w-[34px] h-[34px]"
+                alt="icon"
+                width={34}
+                height={34}
+              />
+            </div>
+            <div className="flex flex-col gap-[5px]">
+              <p className="font-bold text-lg leading-[27px]">
+                Privacy-First Design
+              </p>
+              <p className="text-sm leading-[24px]">
+                Lorem available without even higher tax that cost much
+              </p>
+            </div>
+          </div>
+          <div className="flex items-center gap-4">
+            <div className="flex items-center justify-center shrink-0 w-[70px] h-[70px] rounded-[23px] bg-white overflow-hidden">
+              <Image
+                src="/assets/images/icons/group.svg"
+                className="w-[34px] h-[34px]"
+                alt="icon"
+                width={34}
+                height={34}
+              />
+            </div>
+            <div className="flex flex-col gap-[5px]">
+              <p className="font-bold text-lg leading-[27px]">
+                Easy Move Access
+              </p>
+              <p className="text-sm leading-[24px]">
+                Lorem available without even higher tax that cost much
+              </p>
+            </div>
+          </div>
+          <div className="flex items-center gap-4">
+            <div className="flex items-center justify-center shrink-0 w-[70px] h-[70px] rounded-[23px] bg-white overflow-hidden">
+              <Image
+                src="/assets/images/icons/3dcube.svg"
+                className="w-[34px] h-[34px]"
+                alt="icon"
+                width={34}
+                height={34}
+              />
+            </div>
+            <div className="flex flex-col gap-[5px]">
+              <p className="font-bold text-lg leading-[27px]">
+                Flexibility Spaces
+              </p>
+              <p className="text-sm leading-[24px]">
+                Lorem available without even higher tax that cost much
+              </p>
+            </div>
+          </div>
+          <div className="flex items-center gap-4">
+            <div className="flex items-center justify-center shrink-0 w-[70px] h-[70px] rounded-[23px] bg-white overflow-hidden">
+              <Image
+                src="/assets/images/icons/cup.svg"
+                className="w-[34px] h-[34px]"
+                alt="icon"
+                width={34}
+                height={34}
+              />
+            </div>
+            <div className="flex flex-col gap-[5px]">
+              <p className="font-bold text-lg leading-[27px]">
+                Top-Rated Office
+              </p>
+              <p className="text-sm leading-[24px]">
+                Lorem available without even higher tax that cost much
+              </p>
+            </div>
+          </div>
+          <div className="flex items-center gap-4">
+            <div className="flex items-center justify-center shrink-0 w-[70px] h-[70px] rounded-[23px] bg-white overflow-hidden">
+              <Image
+                src="/assets/images/icons/coffee.svg"
+                className="w-[34px] h-[34px]"
+                alt="icon"
+                width={34}
+                height={34}
+              />
+            </div>
+            <div className="flex flex-col gap-[5px]">
+              <p className="font-bold text-lg leading-[27px]">
+                Extra Snacks Available
+              </p>
+              <p className="text-sm leading-[24px]">
+                Lorem available without even higher tax that cost much
+              </p>
+            </div>
+          </div>
+          <div className="flex items-center gap-4">
+            <div className="flex items-center justify-center shrink-0 w-[70px] h-[70px] rounded-[23px] bg-white overflow-hidden">
+              <Image
+                src="/assets/images/icons/home-trend-up.svg"
+                className="w-[34px] h-[34px]"
+                alt="icon"
+                height={34}
+                width={34}
+              />
+            </div>
+            <div className="flex flex-col gap-[5px]">
+              <p className="font-bold text-lg leading-[27px]">
+                Sustain for Business
+              </p>
+              <p className="text-sm leading-[24px]">
+                Lorem available without even higher tax that cost much
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        id="Fresh-Space"
+        className="flex flex-col gap-[30px] w-full max-w-[1130px] mx-auto mt-[100px] mb-[120px]"
+      >
+        <h2 className="font-bold text-[32px] leading-[48px] text-nowrap text-center">
+          Browse Our Fresh Space.
+          <br />
+          For Your Better Productivity.
+        </h2>
+        <div className="grid grid-cols-3 gap-[30px]">
+          <a href="details.html" className="card">
+            <div className="flex flex-col rounded-[20px] border border-[#E0DEF7] bg-white overflow-hidden">
+              <div className="thumbnail-container relative w-full h-[200px]">
+                <p className="absolute top-5 left-5 w-fit rounded-full p-[6px_16px] bg-[#0D903A] font-bold text-sm leading-[21px] text-[#F7F7FD]">
+                  Popular
+                </p>
+                <img
+                  src="/assets/images/thumbnails/thumbnails-1.png"
+                  className="w-full h-full object-cover"
+                  alt="thumbnails"
+                />
+              </div>
+              <div className="card-detail-container flex flex-col p-5 pb-[30px] gap-4">
+                <h3 className="line-clamp-2 font-bold text-[22px] leading-[36px] h-[72px]">
+                  Angga Park Central Master Silicon Valley Star Class
+                </h3>
+                <div className="flex items-center justify-between">
+                  <p className="font-semibold text-xl leading-[30px]">
+                    Rp 18.560.000
+                  </p>
+                  <div className="flex items-center justify-end gap-[6px]">
+                    <p className="font-semibold">20 days</p>
+                    <img
+                      src="/assets/images/icons/clock.svg"
+                      className="w-6 h-6"
+                      alt="icon"
+                    />
+                  </div>
+                </div>
+                <hr className="border-[#F6F5FD]" />
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-end gap-[6px]">
+                    <img
+                      src="/assets/images/icons/location.svg"
+                      className="w-6 h-6"
+                      alt="icon"
+                    />
+                    <p className="font-semibold">Jakarta Pusat</p>
+                  </div>
+                  <div className="flex items-center justify-end gap-[6px]">
+                    <p className="font-semibold">4.5/5</p>
+                    <img
+                      src="/assets/images/icons/Star 1.svg"
+                      className="w-6 h-6"
+                      alt="icon"
+                    />
+                  </div>
+                </div>
+                <hr className="border-[#F6F5FD]" />
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-end gap-[6px]">
+                    <img
+                      src="/assets/images/icons/wifi.svg"
+                      className="w-6 h-6"
+                      alt="icon"
+                    />
+                    <p className="font-semibold">Fast-Connection</p>
+                  </div>
+                  <div className="flex items-center justify-end gap-[6px]">
+                    <img
+                      src="/assets/images/icons/security-user.svg"
+                      className="w-6 h-6"
+                      alt="icon"
+                    />
+                    <p className="font-semibold">Secure 100%</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </section>
+    </>
   );
 }

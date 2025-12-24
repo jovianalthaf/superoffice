@@ -1,0 +1,49 @@
+import Image from "next/image";
+import Link from "next/link";
+
+export default function Navbar() {
+  return (
+    <nav className="bg-white">
+      <div className="flex items-center justify-between w-full max-w-[1130px] py-[22px] mx-auto">
+        <a href="index.html">
+          <Image
+            src="/assets/images/logos/logo.svg"
+            width={165}
+            height={36}
+            alt="logo"
+          />
+        </a>
+        <ul className="flex items-center gap-[50px] w-fit">
+          <li>
+            <Link href="">Browse</Link>
+          </li>
+          <li>
+            <Link href="">Popular</Link>
+          </li>
+          <li>
+            <Link href="">Categories</Link>
+          </li>
+          <li>
+            <Link href="">Events</Link>
+          </li>
+          <li>
+            <Link href="view-booking-details.html">My Booking</Link>
+          </li>
+        </ul>
+        <a
+          href="#"
+          className="flex items-center gap-[10px] rounded-full border border-[#000929] py-3 px-5"
+        >
+          <Image
+            src="/assets/images/icons/call.svg"
+            className="w-6 h-6"
+            width={24}
+            height={24}
+            alt="icon"
+          />
+          <span className="font-semibold">Contact Us</span>
+        </a>
+      </div>
+    </nav>
+  );
+}
