@@ -1,4 +1,6 @@
 import Image from "next/image";
+import CityCard from "../components/CityCard";
+import { cities } from "../data/cities.mock";
 
 export function CitiesSection() {
   return (
@@ -17,24 +19,14 @@ export function CitiesSection() {
       </div>
       <div className="swiper w-full">
         <div className="swiper-wrapper">
-          <div className="swiper-slide !w-fit first-of-type:pl-[calc((100%-1130px-60px)/2)] last-of-type:pr-[calc((100%-1130px-60px)/2)]">
-            <a href="city-details.html" className="card">
-              <div className="relative flex shrink-0 w-[230px] h-[300px] rounded-[20px] overflow-hidden relative">
-                <div className="relative flex flex-col justify-end w-full h-full p-5 gap-[2px] bg-[linear-gradient(180deg,_rgba(0,0,0,0)_49.87%,_rgba(0,0,0,0.8)_100%)] z-10">
-                  <h3 className="font-bold text-xl leading-[30px] text-white">
-                    Jakarta Pusat
-                  </h3>
-                  <p className="text-white">189 Offices</p>
-                </div>
-                <Image
-                  fill
-                  src="/assets/images/thumbnails/thumbnails-2.png"
-                  className="absolute w-full h-full object-cover"
-                  alt="thumbnails"
-                />
-              </div>
-            </a>
-          </div>
+          {cities.map((city) => (
+            <div
+              key={city.id}
+              className="swiper-slide !w-fit first-of-type:pl-[calc((100%-1130px-60px)/2)] last-of-type:pr-[calc((100%-1130px-60px)/2)]"
+            >
+              <CityCard city={city} />
+            </div>
+          ))}
         </div>
       </div>
     </section>
