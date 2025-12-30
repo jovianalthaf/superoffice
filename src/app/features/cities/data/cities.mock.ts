@@ -18,6 +18,7 @@ export const cities: City[] = cityNames.map((name, i) => {
   //     (space) => space.Location == name
   //   ).length;
   //   console.log(`/assets/image/thumbnails/thumbnails-${(i % 3) + 1}.png`);
+
   return {
     id: i + 1,
     name,

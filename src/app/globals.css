@@ -1,3 +1,7 @@
+@import "swiper/css";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
+
 /*
 ! tailwindcss v3.4.4 | MIT License | https://tailwindcss.com
 */

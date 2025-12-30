@@ -172,6 +172,8 @@ export default function OfficeSpaceDetailPage() {
             </div>
             <div className="flex items-center gap-4">
               <Image
+                width={34}
+                height={34}
                 src="/assets/images/icons/3dcube.svg"
                 className="w-[34px] h-[34px]"
                 alt="icon"
@@ -302,6 +304,7 @@ export default function OfficeSpaceDetailPage() {
                 <div className="flex items-center gap-4">
                   <div className="w-[60px] h-[60px] rounded-full overflow-hidden relative">
                     <Image
+                      fill
                       src="/assets/images/photos/photo-1.png"
                       className="w-full h-full object-cover "
                       alt="photo"
