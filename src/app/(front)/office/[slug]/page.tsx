@@ -3,6 +3,7 @@ import OfficeHeader from "@/app/features/offices/components/OfficeHeader";
 import Image from "next/image";
 import { officeSpaces } from "@/app/features/offices/data/officeSpaces.mock";
 import { notFound } from "next/navigation";
+import OfficeFeatures from "@/app/features/offices/components/OfficeFeatures";
 
 type Props = {
   params: Promise<{
@@ -25,7 +26,10 @@ export default async function OfficeSpaceDetailPage({ params }: Props) {
       >
         <div className="flex flex-col w-full rounded-[20px] border border-[#E0DEF7] p-[30px] gap-[30px] bg-white">
           {office.tags.map((tag) => (
-            <p key={tag} className="w-fit rounded-full p-[6px_16px] bg-[#0D903A] font-bold text-sm leading-[21px] text-[#F7F7FD]">
+            <p
+              key={tag}
+              className="w-fit rounded-full p-[6px_16px] bg-[#0D903A] font-bold text-sm leading-[21px] text-[#F7F7FD]"
+            >
               {tag}
             </p>
           ))}
@@ -84,105 +88,19 @@ export default async function OfficeSpaceDetailPage({ params }: Props) {
                   height={20}
                 />
               </div>
-              <p className="font-semibold text-right">{office.rating} (19,384)</p>
+              <p className="font-semibold text-right">
+                {office.rating} (19,384)
+              </p>
             </div>
           </div>
-          <p className="leading-[30px]">
-            Whether you need quite private space away from the distractions of
-            an at-times chaotic home office, you’re on a team that needs to
-            brainstorm and collaborate in person, or you’re owner meeting with
-            prospective hires, clients, and partners, having access to hundreds
-            of workspaces can be a game-changing resource.
-          </p>
+          <p className="leading-[30px]">{office.about}</p>
           <hr className="border-[#F6F5FD]" />
           <h2 className="font-bold">You Get What You Need Most</h2>
-          <div className="grid grid-cols-3 gap-x-5 gap-y-[30px]">
-            <div className="flex items-center gap-4">
-              <Image
-                src="/assets/images/icons/security-user.svg"
-                className="w-[34px] h-[34px]"
-                alt="icon"
-                width={34}
-                height={34}
-              />
-              <div className="flex flex-col gap-[2px]">
-                <p className="font-bold text-lg leading-[24px]">Privacy</p>
-                <p className="text-sm leading-[21px]">For Yourself</p>
-              </div>
-            </div>
-            <div className="flex items-center gap-4">
-              <Image
-                src="/assets/images/icons/cup.svg"
-                className="w-[34px] h-[34px]"
-                alt="icon"
-                width={34}
-                height={34}
-              />
-              <div className="flex flex-col gap-[2px]">
-                <p className="font-bold text-lg leading-[24px]">Global Event</p>
-                <p className="text-sm leading-[21px]">Startup Contest</p>
-              </div>
-            </div>
-            <div className="flex items-center gap-4">
-              <Image
-                src="/assets/images/icons/home-trend-up.svg"
-                className="w-[34px] h-[34px]"
-                alt="icon"
-                width={34}
-                height={34}
-              />
-              <div className="flex flex-col gap-[2px]">
-                <p className="font-bold text-lg leading-[24px]">
-                  Sustainbility
-                </p>
-                <p className="text-sm leading-[21px]">Long-term Goals</p>
-              </div>
-            </div>
-            <div className="flex items-center gap-4">
-              <Image
-                src="/assets/images/icons/coffee.svg"
-                className="w-[34px] h-[34px]"
-                alt="icon"
-                width={34}
-                height={34}
-              />
-              <div className="flex flex-col gap-[2px]">
-                <p className="font-bold text-lg leading-[24px]">Extra Snacks</p>
-                <p className="text-sm leading-[21px]">Work-Life Balance</p>
-              </div>
-            </div>
-            <div className="flex items-center gap-4">
-              <Image
-                width={34}
-                height={34}
-                src="/assets/images/icons/3dcube.svg"
-                className="w-[34px] h-[34px]"
-                alt="icon"
-              />
-              <div className="flex flex-col gap-[2px]">
-                <p className="font-bold text-lg leading-[24px]">Compact</p>
-                <p className="text-sm leading-[21px]">Good for Focus</p>
-              </div>
-            </div>
-            <div className="flex items-center gap-4">
-              <Image
-                src="/assets/images/icons/group.svg"
-                className="w-[34px] h-[34px]"
-                alt="icon"
-                width={34}
-                height={34}
-              />
-              <div className="flex flex-col gap-[2px]">
-                <p className="font-bold text-lg leading-[24px]">Free Move</p>
-                <p className="text-sm leading-[21px]">Anytime 24/7</p>
-              </div>
-            </div>
-          </div>
+          <OfficeFeatures />
           <hr className="border-[#F6F5FD]" />
           <div className="flex flex-col gap-[6px]">
             <h2 className="font-bold">Office Address</h2>
-            <p>Angga Park Central Master Capitalize</p>
-            <p>BLDG E16, 13 Xicheng District, Beijing, China, 100000</p>
+            <p>{office.address}</p>
           </div>
           <div className="overflow-hidden w-full h-[280px]">
             <div
@@ -191,8 +109,7 @@ export default async function OfficeSpaceDetailPage({ params }: Props) {
             >
               <iframe
                 className="h-full w-full border-0"
-                frameBorder={0}
-                src="https://www.google.com/maps/embed/v1/place?q=Xicheng+District,+Beijing,&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
+                src={`https://www.google.com/maps/embed/v1/place?q=${office.title}&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8`}
               />
             </div>
             <a
@@ -207,10 +124,22 @@ export default async function OfficeSpaceDetailPage({ params }: Props) {
         <div className="w-[392px] flex flex-col shrink-0 gap-[30px]">
           <div className="flex flex-col rounded-[20px] border border-[#E0DEF7] p-[30px] gap-[30px] bg-white">
             <div>
-              <p className="font-extrabold text-[32px] leading-[48px] text-[#0D903A]">
-                Rp 18.540.000
-              </p>
-              <p className="font-semibold mt-1">For 20 days working</p>
+              {office.isFullyBooked ? (
+                <p className="font-bold text-xl leading-[30px]">
+                  Sorry. This office is{" "}
+                  <span className="text-[#FF2D2D]">fully booked</span> at this
+                  moment, try next time.
+                </p>
+              ) : (
+                <div>
+                  <p className="font-extrabold text-[32px] leading-[48px] text-[#0D903A]">
+                    Rp 18.540.000
+                  </p>
+                  <p className="font-semibold mt-1">
+                    For {office.duration} days working
+                  </p>
+                </div>
+              )}
             </div>
             <hr className="border-[#F6F5FD]" />
             <div className="flex flex-col gap-5">
@@ -253,29 +182,32 @@ export default async function OfficeSpaceDetailPage({ params }: Props) {
             </div>
             <hr className="border-[#F6F5FD]" />
             <div className="flex flex-col gap-[14px]">
-              <a
-                href="booking.html"
-                className="flex items-center justify-center w-full rounded-full p-[16px_26px] gap-3 bg-[#0D903A] font-bold text-[#F7F7FD]"
-              >
-                <Image
-                  src="/assets/images/icons/slider-horizontal-white.svg"
-                  className="w-6 h-6"
-                  alt="icon"
-                  width={30}
-                  height={30}
-                />
-                <span>Book This Office</span>
-              </a>
-              <button className="flex items-center justify-center w-full rounded-full border border-[#000929] p-[16px_26px] gap-3 bg-white font-semibold">
-                <Image
-                  src="/assets/images/icons/save-add.svg"
-                  className="w-6 h-6"
-                  alt="icon"
-                  width={30}
-                  height={30}
-                />
-                <span>Save for Later</span>
-              </button>
+              {office.isFullyBooked ? (
+                <button className="flex items-center justify-center w-full rounded-full border border-[#000929] p-[16px_26px] gap-3 bg-white font-semibold">
+                  <Image
+                    src="/assets/images/icons/save-add.svg"
+                    className="w-6 h-6"
+                    alt="icon"
+                    width={30}
+                    height={30}
+                  />
+                  <span>Save for Later</span>
+                </button>
+              ) : (
+                <a
+                  href="booking.html"
+                  className="flex items-center justify-center w-full rounded-full p-[16px_26px] gap-3 bg-[#0D903A] font-bold text-[#F7F7FD]"
+                >
+                  <Image
+                    src="/assets/images/icons/slider-horizontal-white.svg"
+                    className="w-6 h-6"
+                    alt="icon"
+                    width={30}
+                    height={30}
+                  />
+                  <span>Book This Office</span>
+                </a>
+              )}
             </div>
           </div>
           <div className="flex flex-col rounded-[20px] border border-[#E0DEF7] p-[30px] gap-[20px] bg-white">
