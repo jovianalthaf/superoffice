@@ -39,7 +39,7 @@ export default function OfficeSpaceCard({ space }: { space: OfficeSpace }) {
               Rp {space.price.toLocaleString("id-ID")}
             </p>
             <div className="flex items-center justify-end gap-[6px]">
-              <p className="font-semibold">20 days</p>
+              <p className="font-semibold">{space.duration}</p>
               <Image
                 width={6}
                 height={6}
@@ -59,7 +59,7 @@ export default function OfficeSpaceCard({ space }: { space: OfficeSpace }) {
                 className="w-6 h-6"
                 alt="icon"
               />
-              <p className="font-semibold">Jakarta Pusat</p>
+              <p className="font-semibold">{space.location}</p>
             </div>
             <div className="flex items-center justify-end gap-[6px]">
               <p className="font-semibold">{space.rating}</p>

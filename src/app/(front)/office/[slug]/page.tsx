@@ -1,46 +1,24 @@
 import Navbar from "@/app/components/Navbar";
+import OfficeHeader from "@/app/features/offices/components/OfficeHeader";
 import Image from "next/image";
+import { officeSpaces } from "@/app/features/offices/data/officeSpaces.mock";
+import { notFound } from "next/navigation";
 
-export default function OfficeSpaceDetailPage() {
+type Props = {
+  params: Promise<{
+    slug: string;
+  }>;
+};
+
+export default async function OfficeSpaceDetailPage({ params }: Props) {
+  const { slug } = await params;
+
+  const office = officeSpaces.find((item) => item.slug === slug);
+  if (!office) return notFound();
   return (
     <>
       <Navbar />
-      <section id="Gallery" className="-mb-[50px]">
-        <div className="swiper w-full">
-          <div className="swiper-wrapper">
-            <div className="swiper-slide !w-fit">
-              <div className="w-[700px] h-[550px] overflow-hidden relative">
-                <Image
-                  fill
-                  src="/assets/images/thumbnails/thumbnail-details-1.png"
-                  className="w-full h-full object-cover"
-                  alt="thumbnail"
-                />
-              </div>
-            </div>
-            <div className="swiper-slide !w-fit">
-              <div className="w-[700px] h-[550px] overflow-hidden relative">
-                <Image
-                  fill
-                  src="/assets/images/thumbnails/thumbnail-details-2.png"
-                  className="w-full h-full object-cover"
-                  alt="thumbnail"
-                />
-              </div>
-            </div>
-            <div className="swiper-slide !w-fit">
-              <div className="w-[700px] h-[550px] overflow-hidden relative">
-                <Image
-                  fill
-                  src="/assets/images/thumbnails/thumbnail-details-3.png"
-                  className="w-full h-full object-cover"
-                  alt="thumbnail"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <OfficeHeader />
       <section
         id="Details"
         className="relative flex max-w-[1130px] mx-auto gap-[30px] mb-20 z-10"
@@ -52,7 +30,7 @@ export default function OfficeSpaceDetailPage() {
           <div className="flex items-center justify-between">
             <div>
               <h1 className="font-extrabold text-[32px] leading-[44px]">
-                Angga Park Central <br /> Master Capitalize
+                {office.title}
               </h1>
               <div className="flex items-center gap-[6px] mt-[10px]">
                 <Image
@@ -62,7 +40,7 @@ export default function OfficeSpaceDetailPage() {
                   width={6}
                   height={6}
                 />
-                <p className="font-semibold">Jakarta Pusat</p>
+                <p className="font-semibold">{office.location}</p>
               </div>
             </div>
             <div className="flex flex-col gap-[6px]">

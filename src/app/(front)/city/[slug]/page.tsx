@@ -13,17 +13,13 @@ type Props = {
 
 export default async function CityPageDetail({ params }: Props) {
   const { slug } = await params;
+  // ambil city berdasarkan slug
   const city = cities.find((city) => city.slug === slug);
-  // console.log(cities.slug);
-  console.log("PARAM:", slug);
-  console.log(
-    "SLUGS:",
-    cities.map((c) => c.slug)
-  );
+ 
   if (!city) return notFound();
-
+  
   const cityOffices = officeSpaces.filter(
-    (space) => space.location === city.name
+    (office) => office.location === city.name
   );
   return (
     <>
@@ -36,7 +32,7 @@ export default async function CityPageDetail({ params }: Props) {
           >
             <h1 className="font-extrabold text-[50px] leading-[60px]">
               Great Office in <br />{" "}
-              <span className="text-[#0D903A]">Jakarta Pusat City</span>
+              <span className="text-[#0D903A]">{city.name} City</span>
             </h1>
             <p className="text-lg leading-8 text-[#000929]">
               Kantor yang tepat dapat memberikan impact pekerjaan menjadi lebih
