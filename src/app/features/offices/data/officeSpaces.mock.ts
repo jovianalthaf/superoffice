@@ -15,7 +15,7 @@ export const officeSpaces: OfficeSpace[] = [
       "/assets/images/thumbnails/thumbnail-details-2.png",
       "/assets/images/thumbnails/thumbnail-details-3.png",
     ],
-    tags: ["Popular"],
+    tags: ["Test"],
     about:
       "Jovian Super Office A is a premium office space located in the heart of Jakarta Selatan. Equipped with modern amenities and designed for productivity, it's the perfect place for your business to thrive.",
     features: [

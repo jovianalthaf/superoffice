@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { OfficeSpace } from "../types/OfficeSpace.types";
 import Link from "next/link";
+
+// compoenent card ini menerima parameter yang types nya harus sama dengan OfficeSpace
 export default function OfficeSpaceCard({ space }: { space: OfficeSpace }) {
   return (
     <Link href={`/office/${space.slug}`} className="card">

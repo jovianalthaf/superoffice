@@ -24,9 +24,12 @@ export default async function OfficeSpaceDetailPage({ params }: Props) {
         className="relative flex max-w-[1130px] mx-auto gap-[30px] mb-20 z-10"
       >
         <div className="flex flex-col w-full rounded-[20px] border border-[#E0DEF7] p-[30px] gap-[30px] bg-white">
-          <p className="w-fit rounded-full p-[6px_16px] bg-[#0D903A] font-bold text-sm leading-[21px] text-[#F7F7FD]">
-            Popular
-          </p>
+          {office.tags.map((tag) => (
+            <p key={tag} className="w-fit rounded-full p-[6px_16px] bg-[#0D903A] font-bold text-sm leading-[21px] text-[#F7F7FD]">
+              {tag}
+            </p>
+          ))}
+
           <div className="flex items-center justify-between">
             <div>
               <h1 className="font-extrabold text-[32px] leading-[44px]">
@@ -81,7 +84,7 @@ export default async function OfficeSpaceDetailPage({ params }: Props) {
                   height={20}
                 />
               </div>
-              <p className="font-semibold text-right">4.5/5 (19,384)</p>
+              <p className="font-semibold text-right">{office.rating} (19,384)</p>
             </div>
           </div>
           <p className="leading-[30px]">
