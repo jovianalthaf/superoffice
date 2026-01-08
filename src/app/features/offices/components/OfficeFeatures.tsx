@@ -21,7 +21,7 @@ export default function OfficeFeatures({ features }: { features: string[] }) {
   return (
     <div className="grid grid-cols-3 gap-x-5 gap-y-[30px]">
       {features.map((feature) => {
-        console.log(feature);
+        // console.log(feature);
         const matched = FEATURES_MAP.find((f) => f.label === feature);
         if (!matched) return null;
         return (

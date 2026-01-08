@@ -106,7 +106,7 @@ export default async function OfficeSpaceDetailPage({ params }: Props) {
           <div className="overflow-hidden w-full h-[280px]">
             <div
               id="my-map-display"
-              className="h-full w-full max-w-[none] bg-none"
+              className="h-full w-full max-w-none bg-none"
             >
               <iframe
                 className="h-full w-full border-0"
@@ -197,7 +197,7 @@ export default async function OfficeSpaceDetailPage({ params }: Props) {
               ) : (
                 <a
                   target="_blank"
-                  href={`https://wa.me/6282111117692?text=Saya ingin booking kantor ${office.title} detailsnya http://localhost:3000office/${office.slug}`}
+                  href={`https://wa.me/6282111117692?text=Saya ingin booking kantor ${office.title} detailsnya http://localhost:3000/office/${office.slug}`}
                   className="flex items-center justify-center w-full rounded-full p-[16px_26px] gap-3 bg-[#0D903A] font-bold text-[#F7F7FD]"
                 >
                   <Image

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Navbar from "./components/Navbar";
 import { CitiesSection } from "./features/cities/sections/CitiesSection";
 import FreshSpaceSection from "./features/offices/sections/FreshSpaceSection";
