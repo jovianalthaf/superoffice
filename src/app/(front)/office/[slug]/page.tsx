@@ -4,6 +4,7 @@ import Image from "next/image";
 import { officeSpaces } from "@/app/features/offices/data/officeSpaces.mock";
 import { notFound } from "next/navigation";
 import OfficeFeatures from "@/app/features/offices/components/OfficeFeatures";
+import SalesContactCard from "@/app/features/offices/components/SalesContactCard";
 
 type Props = {
   params: Promise<{
@@ -19,7 +20,7 @@ export default async function OfficeSpaceDetailPage({ params }: Props) {
   return (
     <>
       <Navbar />
-      <OfficeHeader />
+      <OfficeHeader image={office.image} images={office.images} />
       <section
         id="Details"
         className="relative flex max-w-[1130px] mx-auto gap-[30px] mb-20 z-10"
@@ -96,7 +97,7 @@ export default async function OfficeSpaceDetailPage({ params }: Props) {
           <p className="leading-[30px]">{office.about}</p>
           <hr className="border-[#F6F5FD]" />
           <h2 className="font-bold">You Get What You Need Most</h2>
-          <OfficeFeatures />
+          <OfficeFeatures features={office.features} />
           <hr className="border-[#F6F5FD]" />
           <div className="flex flex-col gap-[6px]">
             <h2 className="font-bold">Office Address</h2>
@@ -195,7 +196,8 @@ export default async function OfficeSpaceDetailPage({ params }: Props) {
                 </button>
               ) : (
                 <a
-                  href="booking.html"
+                  target="_blank"
+                  href={`https://wa.me/6282111117692?text=Saya ingin booking kantor ${office.title} detailsnya http://localhost:3000office/${office.slug}`}
                   className="flex items-center justify-center w-full rounded-full p-[16px_26px] gap-3 bg-[#0D903A] font-bold text-[#F7F7FD]"
                 >
                   <Image
@@ -213,78 +215,9 @@ export default async function OfficeSpaceDetailPage({ params }: Props) {
           <div className="flex flex-col rounded-[20px] border border-[#E0DEF7] p-[30px] gap-[20px] bg-white">
             <h2 className="font-bold">Contact Our Sales</h2>
             <div className="flex flex-col gap-[30px]">
-              <div className="flex items-center justify-between gap-3">
-                <div className="flex items-center gap-4">
-                  <div className="w-[60px] h-[60px] rounded-full overflow-hidden relative">
-                    <Image
-                      fill
-                      src="/assets/images/photos/photo-1.png"
-                      className="w-full h-full object-cover "
-                      alt="photo"
-                    />
-                  </div>
-                  <div className="flex flex-col gap-[2px]">
-                    <p className="font-bold">Masayoshi</p>
-                    <p className="text-sm leading-[21px]">Sales Manager</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3">
-                  <a href="#">
-                    <Image
-                      src="/assets/images/icons/call-green.svg"
-                      className="w-10 h-10"
-                      alt="icon"
-                      width={10}
-                      height={10}
-                    />
-                  </a>
-                  <a href="#">
-                    <Image
-                      src="/assets/images/icons/chat-green.svg"
-                      className="w-10 h-10"
-                      alt="icon"
-                      width={10}
-                      height={10}
-                    />
-                  </a>
-                </div>
-              </div>
-              <div className="flex items-center justify-between gap-3">
-                <div className="flex items-center gap-4">
-                  <div className="w-[60px] h-[60px] rounded-full overflow-hidden relative">
-                    <Image
-                      fill
-                      src="/assets/images/photos/photo-2.png"
-                      className="w-full h-full object-cover"
-                      alt="photo"
-                    />
-                  </div>
-                  <div className="flex flex-col gap-[2px]">
-                    <p className="font-bold">Fuji Ovina</p>
-                    <p className="text-sm leading-[21px]">Sales Manager</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3">
-                  <a href="#">
-                    <Image
-                      src="/assets/images/icons/call-green.svg"
-                      className="w-10 h-10"
-                      alt="icon"
-                      width={10}
-                      height={10}
-                    />
-                  </a>
-                  <a href="#">
-                    <Image
-                      src="/assets/images/icons/chat-green.svg"
-                      className="w-10 h-10"
-                      alt="icon"
-                      width={10}
-                      height={10}
-                    />
-                  </a>
-                </div>
-              </div>
+              {office.salesContacts.map((contact, index) => (
+                <SalesContactCard key={index} contact={contact} />
+              ))}
             </div>
           </div>
         </div>
