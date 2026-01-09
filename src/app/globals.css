@@ -1332,11 +1332,13 @@ video {
 body{
   font-family: "Poppins";
   font-display: swap;
-  color: #000929;
-  background-color: #F7F7FD;
+  /* color: #000929; */
+  /* background-color: #fdfdfd; */
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+
+
 }
 
 .placeholder\:font-normal::-moz-placeholder {

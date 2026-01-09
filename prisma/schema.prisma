@@ -12,3 +12,106 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+
+model User {
+  id        Int       @id @default(autoincrement())
+  email     String    @unique
+  name      String?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  bookings  Booking[]
+}
+
+model Office {
+  id        Int       @id @default(autoincrement())
+  title     String
+  slug      String    @unique
+  price     Int
+  duration  String
+  location  String
+  rating    Float
+  address   String
+  image     String
+  about     String
+  booking   Booking[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  images   OfficeImage[]
+  tags     OfficeTag[]
+  features OfficeFeature[]
+  sales    OfficeSale[]
+}
+
+model OfficeImage {
+  id       Int    @id @default(autoincrement())
+  office   Office @relation(fields: [officeId], references: [id])
+  officeId Int
+  imageUrl String
+}
+
+model Tag {
+  id      Int         @id @default(autoincrement())
+  name    String      @unique
+  offices OfficeTag[]
+}
+
+model OfficeTag {
+  office   Office @relation(fields: [officeId], references: [id], onDelete: Cascade)
+  officeId Int
+
+  tag   Tag @relation(fields: [tagId], references: [id], onDelete: Cascade)
+  tagId Int
+
+  @@id([officeId, tagId])
+}
+
+model Feature {
+  id          Int    @id @default(autoincrement())
+  label       String @unique
+  description String
+  icon        String
+
+  offices OfficeFeature[]
+}
+
+model OfficeFeature {
+  office   Office @relation(fields: [officeId], references: [id], onDelete: Cascade)
+  officeId Int
+
+  feature   Feature @relation(fields: [featureId], references: [id], onDelete: Cascade)
+  featureId Int
+
+  @@id([officeId, featureId])
+}
+
+model Sales {
+  id    Int    @id @default(autoincrement())
+  name  String
+  role  String
+  photo String
+
+  offices OfficeSale[]
+}
+
+model OfficeSale {
+  office   Office @relation(fields: [officeId], references: [id], onDelete: Cascade)
+  officeId Int
+
+  sales   Sales @relation(fields: [salesId], references: [id], onDelete: Cascade)
+  salesId Int
+
+  @@id([officeId, salesId])
+}
+
+model Booking {
+  id        Int      @id @default(autoincrement())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int
+  office    Office   @relation(fields: [officeId], references: [id])
+  officeId  Int
+  startDate DateTime
+  endDate   DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

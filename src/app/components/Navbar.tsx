@@ -43,6 +43,12 @@ export default function Navbar() {
           />
           <span className="font-semibold">Contact Us</span>
         </a>
+        <Link
+          className="rounded-full bg-[#000929] text-white py-3 px-5 font-semibold"
+          href="/login"
+        >
+          Login
+        </Link>
       </div>
     </nav>
   );
