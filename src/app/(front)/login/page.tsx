@@ -14,7 +14,7 @@ export default function LoginPage() {
           placeholder="Email"
         />
 
-        <button className="mt-6 w-full rounded-lg  dark:bg-red-600 text-white py-2">
+        <button className="mt-6 w-full rounded-lg bg-red-100 dark:bg-red-600 text-white py-2">
           Sign in
         </button>
       </div>
