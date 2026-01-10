@@ -2,9 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { signIn, signOut, useSession } from "next-auth/react";
 export default function Navbar() {
-  const { data: session, status } = useSession();
   return (
     <nav className="bg-white">
       <div className="flex items-center justify-between w-full max-w-[1130px] py-[22px] mx-auto">
